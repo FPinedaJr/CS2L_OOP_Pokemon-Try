@@ -45,12 +45,13 @@ class PokemonCard(BaseModel):
         ('poison', 'Poison'),
         ('flying', 'Flying'),
     ]
+    
     name = models.CharField(max_length=255, null=True, blank=True)
     rarity = models.CharField(max_length=1, choices=rarity_choices, default='C')
     hp = models.IntegerField(null=True, blank=True)
     card_type = models.CharField(max_length=255, choices=card_type_choices, default='none')
-    attack = models.IntegerField(null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+    attack = models.CharField(max_length=255, null=True, blank=True)
+    description = models.CharField(max_length=255, null=True, blank=True)
     weakness = models.CharField(max_length=255, null=True, blank=True)
     card_number = models.IntegerField(null=True, blank=True)
     release_date = models.DateField(null=True, blank=True)
