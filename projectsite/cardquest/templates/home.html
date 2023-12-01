@@ -1,12 +1,13 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block navbar %}
-    <section class="navbar">
-    <a href="{% url "home" %}" class="btn" id="active"> Home </a>
-    <a href="{% url "trainer-list" %}" class="btn"> Trainer </a>
-    <a href="{% url "pokemon-card-list" %}" class="btn"> Pokemon Card </a>
-    <a href="{% url "collection-list" %}" class="btn"> Collection </a>
-    </section>
+  <section class="navbar">
+    <a href='{% url "home" %}' class="btn" id="active"> Home </a>
+    <a href='{% url "trainer_list" %}' class="btn"> Trainer </a>
+    <a href='{% url "pokemon-card" %}' class="btn"> Pokemon Card </a>
+    <a href='{% url "collection" %}' class="btn"> Collection </a>
+  </section>
 {% endblock navbar %}
+
 {% block content %}
-{% endblock content %}
+{% endblock %}
