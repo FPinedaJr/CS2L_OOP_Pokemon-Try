@@ -1,5 +1,5 @@
 """
-WSGI config for projectsite project.
+WSGI config for projectsite.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
