@@ -5,7 +5,7 @@ from .models import Trainer, PokemonCard, Collection
 
 @admin.register(Trainer)
 class TrainerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birthdate', 'location', 'email')
+    list_display = ('name', 'birthdate', 'location', 'email',)
     search_fields = ('name', 'location')
 
 
