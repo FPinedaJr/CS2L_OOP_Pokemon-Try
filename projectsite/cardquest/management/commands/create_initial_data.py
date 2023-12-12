@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from ...models import PokemonCard, Trainer
+from ...models import PokemonCard, Trainer, Collection
 
 class Command(BaseCommand):
     help = 'Creates initial data for application'
@@ -98,3 +98,12 @@ class Command(BaseCommand):
             trainer.save()
         
         self.stdout.write(self.style.SUCCESS('Successfully created trainers.'))
+        
+    def create_collection(self):
+      
+        
+        collection = Collection(card=PokemonCard.objects.get('Pikachu'), trainer=Trainer.objects.get('Ash'), release_date='2023-12-12')
+        
+        collection.save()
+        self.stdout.write(self.style.SUCCESS('Successfully created collection.'))
+        

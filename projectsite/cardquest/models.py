@@ -65,3 +65,4 @@ class PokemonCard(BaseModel):
 class Collection(BaseModel):
     card = models.ForeignKey(PokemonCard, on_delete=models.CASCADE, null=True, blank=True)
     trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE, null=True, blank=True)
+    release_date = models.DateField(null=True, blank=True)

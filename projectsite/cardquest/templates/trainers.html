@@ -10,4 +10,29 @@
 {% endblock navbar %}
 
 {% block content %}
+<section class="trainers-container">
+  <table class="styled-table">
+    <tbody>
+
+      <tr>
+        <th>Trainer Name</th>
+        <th>Birthdate</th>
+        <th>Location</th>
+        <th>Email</th>
+      </tr>
+
+      {% for t in trainer %}
+        <tr>
+          <td>{{ t.name }}</td>
+          <td>{{ t.birthdate }}</td>
+          <td>{{ t.location }}</td>
+          <td>{{ t.email }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+
+
 {% endblock %}
