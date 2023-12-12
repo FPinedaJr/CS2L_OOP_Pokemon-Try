@@ -7,6 +7,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         self.create_pokemon_cards()
         self.create_trainers()
+        self.create_collection()
     
     def create_pokemon_cards(self):
         card1 = PokemonCard(name="Pikachu", rarity="R",hp=60, card_type="Electric", attack="Thunder Shock",
