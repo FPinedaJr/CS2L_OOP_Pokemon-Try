@@ -10,6 +10,7 @@
 {% endblock navbar %}
 
 {% block content %}
+<a href="{% url 'trainer-add' %}" class="btn btn-outline-primary">Add New Trainer</a><br>
 <section class="trainers-container">
   <table class="styled-table">
     <tbody>
@@ -19,6 +20,7 @@
         <th>Birthdate</th>
         <th>Location</th>
         <th>Email</th>
+        <th>Action</th>
       </tr>
 
       {% for t in trainer %}
@@ -27,6 +29,10 @@
           <td>{{ t.birthdate }}</td>
           <td>{{ t.location }}</td>
           <td>{{ t.email }}</td>
+          <td>
+            <a href="trainer_list/{{ t.id }}" >Edit</a> |
+            <a href="trainer_list/{{ t.id }}/delete" >Delete</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
