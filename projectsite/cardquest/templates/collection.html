@@ -10,4 +10,34 @@
 {% endblock navbar%}
 
 {% block content %}
+<a href="{% url 'collection-add' %}" class="btn btn-outline-primary">Add New Collection</a><br>
+<section class="trainers-container">
+  <table class="styled-table">
+    <tbody>
+
+      <tr>
+        <th>Trainer Name</th>
+        <th>Card</th>
+        <th>Collection Date</th>
+        <th>Action</th>
+      </tr>
+
+      {% for c in collection %}
+      <tr>
+        <td>{{c.card}}</td>
+        <td>{{c.trainer}}</td>
+        <td>{{c.collection_date}}</td>
+        <td>
+          <a href="collection_list/{{c.id}}">Edit</a> | 
+          <a href="collection_list/{{c.id}}/delete">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<div>
+  {% include 'includes/pagination.html' %}
+</div>
 {% endblock %}

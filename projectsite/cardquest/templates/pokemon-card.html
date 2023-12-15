@@ -1,14 +1,73 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-  <section class="navbar">
-    <a href='{% url "home" %}' class="btn"> Home </a>
-    <a href='{% url "trainer_list" %}' class="btn"> Trainer </a>
-    <a href='{% url "pokemon-card" %}' class="btn" id="active"> Pokemon Card </a>
-    <a href='{% url "collection" %}' class="btn"> Collection </a>
-  </section>
-{% endblock navbar %}
-
+	<section class="navbar">
+	<a href='{% url "home" %}' class="btn"> Home </a>
+	<a href='{% url "trainer_list" %}' class="btn"> Trainer </a>
+	<a href='{% url "pokemon-card" %}' class="btn" id="active"> Pokemon Card </a>
+	<a href='{% url "collection" %}' class="btn"> Collection </a>
+	</section>
+{% endblock navbar%}
 
 {% block content %}
+<section class="cards-container">
+  <!-- Display Pokemon Cards -->
+{% for card in object_list %}
+<div class="card-box">
+  <div class="card">
+    <div class="card-type" id="{{ card.card_type|lower }}">
+      <div class="card-image" id="{{ card.card_type|lower }}-img">
+        {% for pokemon in pokemon_data %}
+        {% if pokemon.name == card.name %}
+          <img src="{{ pokemon.image_url }}" alt="{{ pokemon.name }} Image">
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="card-name">
+        <h2 class="sbs">{{ card.name}}</h2>
+        <h2 class="sbs" id="card-number">#0025</h2>
+        <hr />
+      </div>
+      <div class="card-rarity">
+        <h3 class="rarity">Rarity:</h3>
+        <h3 class="rarity" id="rare-text">{{ card.rarity }}</h3>
+      </div>
+      <table class="card-stats">
+      <tbody>
+        <tr>
+          <th>HP:</th>
+          <td>{{ card.hp }}</td>
+        </tr>
+        <tr>
+          <th>Card Type:</th>
+          <td>{{ card.card_type }}</td>
+        </tr>
+        <tr>
+          <th>Attack:</th>
+          <td>{{ card.attack }}</td>
+        </tr>
+        <tr>
+          <th>Description:</th>
+          <td>{{ card.description }}</td>
+        </tr>
+        <tr>
+          <th>Weakness:</th>
+          <td>{{ card.weakness }}</td>
+        </tr>
+        <tr>
+          <th>Abilities:</th>
+          <td>{{ card.abilities }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <tr>
+      <a href="pokemon-card_list/{{ card.id }}" >Edit</a> |
+      <a href="pokemon-card_list/{{ card.id }}/delete" >Delete</a>
+    </tr>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</section>
 {% endblock %}
