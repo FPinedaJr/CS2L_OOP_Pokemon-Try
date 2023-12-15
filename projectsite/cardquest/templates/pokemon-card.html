@@ -10,6 +10,7 @@
 {% endblock navbar%}
 
 {% block content %}
+<a href="{% url 'pokemon-card-add' %}" class="btn btn-outline-primary">Add New Cards</a><br>
 <section class="cards-container">
   <!-- Display Pokemon Cards -->
 {% for card in object_list %}
